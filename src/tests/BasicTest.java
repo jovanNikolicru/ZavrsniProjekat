@@ -83,6 +83,7 @@ public abstract class BasicTest {
 				File DestFile=new File(path);
 				FileUtils.copyFile(SrcFile, DestFile);
 		}
+		driver.quit();
 		}
 	}
 		
