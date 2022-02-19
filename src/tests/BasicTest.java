@@ -2,6 +2,8 @@ package tests;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -10,7 +12,9 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -65,10 +69,23 @@ public abstract class BasicTest {
 		 
 	}
 	
-	
 
 	@AfterMethod
-	public  void afterMethod() {
-		//driver.quit();
+	public void afterMethod(ITestResult result) throws IOException {
+	DateTimeFormatter currentTime = DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss");  
+	LocalDateTime now = LocalDateTime.now(); 
+		
+		if(ITestResult.FAILURE==result.getStatus()) {
+			 String path="D:\\projekti\\ZavrsniProjekat\\screenshots\\"+currentTime.format(now)+".png";
+			TakesScreenshot scrShot =((TakesScreenshot)driver);
+				
+				File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+				File DestFile=new File(path);
+				FileUtils.copyFile(SrcFile, DestFile);
+		}
+		}
 	}
-}
+		
+		
+	
+

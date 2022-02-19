@@ -32,12 +32,12 @@ public class ProfileTest extends BasicTest {
 	
 		js.executeScript("arguments[0].click();",pp.getProfileSaveBtn());
 	
-		Assert.assertTrue(nsp.getMessageOfNotification().equals("Setup Successful"), "[ERROR] Setup message ditn't show up");
+		Assert.assertTrue(nsp.getMessageOfNotification().equals("Testing screenshot"), "[ERROR] Setup message ditn't show up");
 		nsp.waitForMessageToDisappear();
 		ap.logout();
 		Assert.assertTrue(nsp.getMessageOfNotification().equals("Logout Successfull!"),"[ERROR] Logout message didn't show up");
 		}
-	@Test (priority=3)
+	/*@Test (priority=3)
 	public void changeProfilePic() throws InterruptedException, IOException {
 		driver.navigate().to(baseUrl +"/guest-user/login-form");
 		driver.manage().window().maximize();
@@ -58,6 +58,6 @@ public class ProfileTest extends BasicTest {
 		nsp.waitForMessageToDisappear();
 		ap.logout();
 		Assert.assertTrue(nsp.getMessageOfNotification().equals("Logout Successfull!"),"[ERROR] Logout unsuccessful");
-	}
+	}*/
 	
 }
