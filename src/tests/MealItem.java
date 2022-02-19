@@ -11,7 +11,7 @@ import org.testng.asserts.SoftAssert;
 
 public class MealItem extends BasicTest {
 
-	@Test
+	@Test(priority=1)
 	public void addMealToCart() throws InterruptedException {
 		driver.navigate().to(baseUrl +"meal/lobster-shrimp-chicken-quesadilla-combo");
 		driver.manage().window().maximize();
@@ -24,7 +24,7 @@ public class MealItem extends BasicTest {
 		mp.addMealToCart("3");
 		Assert.assertTrue(nsp.getMessageOfNotification().contains("Meal Added To Cart"),"[ERROR] Meal not added to cart");
 	}
-	@Test
+	@Test(priority=3)
 	public void addMealToFavorite() throws InterruptedException, IOException {
 		SoftAssert sa =new SoftAssert();
 		driver.navigate().to(baseUrl +"meal/lobster-shrimp-chicken-quesadilla-combo");
@@ -43,7 +43,7 @@ public class MealItem extends BasicTest {
 		sa.assertTrue(nsp.getMessageOfNotification().contains("has been added to your favorites"),"[ERROR] Not added to favorites");
 		sa.assertAll();
 	}
-	@Test
+	@Test(priority=5)
 	public void clearCart() throws InterruptedException, IOException {
 		SoftAssert sa =new SoftAssert();
 		driver.navigate().to(baseUrl +"meal/lobster-shrimp-chicken-quesadilla-combo");

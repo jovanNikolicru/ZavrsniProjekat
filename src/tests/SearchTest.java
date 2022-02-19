@@ -10,7 +10,7 @@ import org.testng.asserts.SoftAssert;
 
 public class SearchTest extends BasicTest {
 	
-	@Test
+	@Test(priority=6)
 	public void searchTest() throws InterruptedException, IOException {
 		SoftAssert sa =new SoftAssert();
 		driver.navigate().to(baseUrl +"meals");

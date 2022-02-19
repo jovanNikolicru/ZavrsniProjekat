@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 public class ProfileTest extends BasicTest {
 
-	@Test
+	@Test (priority=0)
 	public void editProfile() throws InterruptedException {
 		driver.navigate().to("http://demo.yo-meals.com/guest-user/login-form");
 		driver.manage().window().maximize();
@@ -37,7 +37,7 @@ public class ProfileTest extends BasicTest {
 		ap.logout();
 		Assert.assertTrue(nsp.getMessageOfNotification().equals("Logout Successfull!"),"[ERROR] Logout message didn't show up");
 		}
-	@Test
+	@Test (priority=3)
 	public void changeProfilePic() throws InterruptedException, IOException {
 		driver.navigate().to(baseUrl +"/guest-user/login-form");
 		driver.manage().window().maximize();
