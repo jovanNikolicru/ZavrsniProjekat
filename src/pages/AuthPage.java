@@ -4,14 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AuthPage extends BasicPage{
 
 	public AuthPage(WebDriver driver, WebDriverWait wait, JavascriptExecutor js) {
 		super(driver, wait, js);
-		// TODO Auto-generated constructor stub
+		
 	}
 	public WebElement getDropMenu() {
 		return driver.findElement(By.xpath("//*[contains(@class, 'user-trigger-js')]"));

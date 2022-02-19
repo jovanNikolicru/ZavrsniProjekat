@@ -14,7 +14,7 @@ public class MealPage extends BasicPage{
 
 	public MealPage(WebDriver driver, WebDriverWait wait, JavascriptExecutor js) {
 		super(driver, wait, js);
-		// TODO Auto-generated constructor stub
+	
 	}
 	public WebElement goToMealPage() {
 		return driver.findElement(By.xpath("//*[contains(@class, 'right-head')]//li[1]//a"));

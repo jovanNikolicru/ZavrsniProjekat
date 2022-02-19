@@ -11,7 +11,7 @@ public class LocationPopupPage extends BasicPage {
 
 	public LocationPopupPage(WebDriver driver, WebDriverWait wait, JavascriptExecutor js) {
 		super(driver, wait, js);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public WebElement getLocationBtnHeader() {

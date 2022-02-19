@@ -13,7 +13,7 @@ public class SearchResultPage extends BasicPage {
 
 	public SearchResultPage(WebDriver driver, WebDriverWait wait, JavascriptExecutor js) {
 		super(driver, wait, js);
-		// TODO Auto-generated constructor stub
+		
 	}
 	public List<WebElement> favoriteMeals(){
 		return driver.findElements(By.xpath("//*[contains(@class, 'itemfav')]"));

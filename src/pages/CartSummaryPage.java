@@ -10,7 +10,7 @@ public class CartSummaryPage extends BasicPage {
 
 	public CartSummaryPage(WebDriver driver, WebDriverWait wait, JavascriptExecutor js) {
 		super(driver, wait, js);
-		// TODO Auto-generated constructor stub
+	
 	}
 	public WebElement getClearAllBtn() {
 		return driver.findElement(By.className("btn--third"));
