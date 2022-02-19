@@ -22,10 +22,14 @@ public class LoginPage extends BasicPage {
 		return driver.findElement(By.name("btn_submit"));
 	}
 	
-	public void login(String username, String password) {
-		getUsername().sendKeys(username);
+	public void login(String email, String password) throws InterruptedException {
+		getUsername().sendKeys(email);
 		getPassword().sendKeys(password);
 		getLoginBtn().click();
+		Thread.sleep(1000);
+	}
+	public WebElement getLoginPage() {
+		return driver.findElement(By.xpath("//*[contains(@class,'filled')]//a"));
 	}
 
 }

@@ -17,8 +17,9 @@ public class NotificationSistemPage extends BasicPage{
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("system_message")));
 		return driver.findElement(By.className("system_message"));
 	}
-	public String getMessageOfNotification() {
-		return driver.findElement(By.xpath("/html/body/div[2]/div/div/ul/li")).getText();
+	public String getMessageOfNotification() throws InterruptedException {
+		Thread.sleep(200);
+		return getNotification().getText();
 	}
 	public void waitForMessageToDisappear() {
 		WebElement element= driver.findElement(By.xpath("//*[contains(@class, 'system_message')]"));

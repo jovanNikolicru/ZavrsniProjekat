@@ -15,19 +15,16 @@ public class SearchResultPage extends BasicPage {
 		super(driver, wait, js);
 		// TODO Auto-generated constructor stub
 	}
-	public List<WebElement> searchResults() {
-		return  driver.findElements(By.xpath("//*[@class='product-name']/a"));
+	public List<WebElement> favoriteMeals(){
+		return driver.findElements(By.xpath("//*[contains(@class, 'itemfav')]"));
 	}
-	public void namesOfMeals() {
-		List<WebElement> names= searchResults();
-		ArrayList<String> obtainedList = new ArrayList<>(); 
-		
-		for(WebElement we:names){
-		   obtainedList.add(we.getText());
-		}
+	
+	public List<WebElement> listOfMeals(){
+		return driver.findElements(By.xpath("//div[contains(@class,'product-name')]//a"));
 	}
+	
 	public int searchResultsNumber() {
-		return searchResults().size();
+		return favoriteMeals().size();
 	}
 
 }

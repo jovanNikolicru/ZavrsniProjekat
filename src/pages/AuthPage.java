@@ -13,16 +13,17 @@ public class AuthPage extends BasicPage{
 		super(driver, wait, js);
 		// TODO Auto-generated constructor stub
 	}
-	public Select getDrop() {
-		WebElement element= driver.findElement(By.xpath("//*[contains(@class, 'user-trigger-js')]"));
-		Select drop= new Select(element);
-		return drop;
+	public WebElement getDropMenu() {
+		return driver.findElement(By.xpath("//*[contains(@class, 'user-trigger-js')]"));
+		
 	}
 	public void getMyAcc() {
-		getDrop().selectByVisibleText("My Account");
+		getDropMenu().click();
+		driver.findElement(By.xpath("//*[contains(@class, 'my-account-dropdown')]//li[1]//a")).click();
 	}
 	public void logout() {
-		getDrop().selectByVisibleText("Logout");
+		getDropMenu().click();
+		driver.findElement(By.xpath("//*[contains(@class, 'my-account-dropdown')]//li[2]//a")).click();
 	}
 	
 

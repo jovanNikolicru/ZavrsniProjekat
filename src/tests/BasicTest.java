@@ -16,27 +16,59 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import pages.AuthPage;
 import pages.BasicPage;
+import pages.CartSummaryPage;
 import pages.LocationPopupPage;
+import pages.LoginPage;
+import pages.MealPage;
+import pages.NotificationSistemPage;
+import pages.ProfilePage;
+import pages.SearchResultPage;
 
 public abstract class BasicTest {
 	protected WebDriver driver;
 	protected WebDriverWait wait;
 	protected JavascriptExecutor js;
+	protected AuthPage ap;
+	protected CartSummaryPage csp;
+	protected LocationPopupPage lpp;
+	protected LoginPage lp;
+	protected MealPage mp;
+	protected NotificationSistemPage nsp;
+	protected ProfilePage pp;
+	protected SearchResultPage srp;
+	protected String baseUrl ="http://demo.yo-meals.com/";
+	protected String email="customer@dummyid.com";
+	protected String password=	"12345678a";	
+	
+	
 
-	
-	
-	public BasicTest(WebDriver driver, WebDriverWait wait, JavascriptExecutor js) {
-		super();
-		this.driver = driver;
-		this.wait = wait;
-		this.js = js;
-	}
+
 	@BeforeMethod
-	public abstract void beforeMethod() ;
+	public  void beforeMethod() {
+		System.setProperty("webdriver.chrome.driver", "driver-lib\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.navigate().to(baseUrl);
+		wait = new WebDriverWait(driver, 15);
+		js=(JavascriptExecutor)driver;
+		 ap= new AuthPage(driver, wait, js);
+		 csp=new CartSummaryPage(driver, wait, js);
+		 lpp= new LocationPopupPage(driver, wait, js);
+		 lp= new LoginPage(driver, wait, js);
+		 mp=new MealPage(driver, wait, js);
+		 nsp=new NotificationSistemPage(driver, wait, js);
+		 pp= new ProfilePage(driver, wait, js);
+		 srp= new SearchResultPage(driver, wait, js);
+		 
+	}
 	
 	
 
 	@AfterMethod
-	public abstract void afterMethod() ;
+	public  void afterMethod() {
+		//driver.quit();
+	}
 }
