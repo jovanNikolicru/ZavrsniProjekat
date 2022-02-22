@@ -40,6 +40,7 @@ public class MealItem extends BasicTest {
 		nsp.waitForMessageToDisappear();
 		driver.navigate().to(baseUrl +"meal/lobster-shrimp-chicken-quesadilla-combo");
 		mp.getAddToFavorite().click();
+		Thread.sleep(100);
 		sa.assertTrue(nsp.getMessageOfNotification().contains("has been added to your favorites"),"[ERROR] Not added to favorites");
 		sa.assertAll();
 	}
